@@ -52,3 +52,9 @@ position = Vector2(1270, 384)
 
 [node name="Blob" parent="." instance=ExtResource("3_lnu2h")]
 position = Vector2(813, 717)
+
+[node name="Blob2" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(985, 917)
+
+[node name="Blob3" parent="." instance=ExtResource("3_lnu2h")]
+position = Vector2(645, 431)
