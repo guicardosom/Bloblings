@@ -16,7 +16,7 @@ func get_chunk_coords(pos: Vector2) -> Vector2i:
 	return Vector2i(
 		floor(pos.x / chunk_size),
 		floor(pos.y / chunk_size)
-	)
+	)	
 
 func update_chunks_around_player():
 	var player_chunk = get_chunk_coords(player.global_position)
@@ -43,7 +43,7 @@ func spawn_chunk(chunk_coords: Vector2i):
 	add_child(chunk)
 	active_chunks[chunk_coords] = chunk
 
-	var chunk_origin = chunk_coords * chunk_size
+	var chunk_origin = Vector2(chunk_coords.x * chunk_size, chunk_coords.y * chunk_size)
 
 	var rng = RandomNumberGenerator.new()
 	rng.seed = hash(chunk_coords)
@@ -54,5 +54,5 @@ func spawn_chunk(chunk_coords: Vector2i):
 			rng.randf_range(0, chunk_size),
 			rng.randf_range(0, chunk_size)
 		)
-		tree.position = Vector2(chunk_origin) + local_pos
+		tree.position = chunk_origin + local_pos
 		chunk.add_child(tree)
